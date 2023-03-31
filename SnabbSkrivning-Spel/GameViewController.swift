@@ -30,7 +30,7 @@ class GameViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
     var initialSeconds = 3
     
     var timer = Timer()
-    var countdownTimer = 10
+    var countdownTimer = 20
     var earnedPoints = 0
     
     var currentWord = ""
@@ -55,6 +55,8 @@ class GameViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         selectDifficultyBtn.setTitle(difficulty[row], for: .normal)
         pickerView.isHidden = true
         startBtn2.isHidden = false
+        
+        selectDifficultyBtn.isUserInteractionEnabled = false
         
         if row == 0 {
             currentDifficulty = "Easy"
@@ -81,13 +83,12 @@ class GameViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         readyCountdownLabel.isHidden = true
         timerLabel.isHidden = true
         randomTextLabel.isHidden = true
-        
     }
     
     // Starts the round by pressing START button
     @IBAction func startBtn(_ sender: UIButton) {
         startBtn2.isHidden = true
-        selectDifficultyBtn.isUserInteractionEnabled = false
+        
         textInput.becomeFirstResponder()
         
         getReadyTimer()
