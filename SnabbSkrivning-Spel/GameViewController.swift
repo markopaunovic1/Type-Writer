@@ -192,7 +192,7 @@ class GameViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
         if textInput.text == randomTextLabel.text {
             
             earnedPoints += 1
-            countdownTimer += 2
+            countdownTimer += 1
             pointsLabel.text = "\(earnedPoints)"
             
             // Gets the new random word from different functions
