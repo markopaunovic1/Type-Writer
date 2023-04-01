@@ -10,21 +10,19 @@ import UIKit
 class ScoreBoardViewController: UIViewController {
 
     @IBOutlet weak var easyPointsLabel: UILabel!
-    @IBOutlet weak var mediumointsLabel: UILabel!
+    @IBOutlet weak var mediumPointsLabel: UILabel!
     @IBOutlet weak var hardPointsLabel: UILabel!
     
-    var easyPoints = 0
-    
     // Saves the  current ALL TIME HIGHEST points
-    let savedEasyPoints = UserDefaults.standard.integer(forKey: "easyPoints")
-    let savedMediumPoints = UserDefaults.standard.integer(forKey: "mediumPoints")
-    let savedHardPoints = UserDefaults.standard.integer(forKey: "hardPoints")
+    let savedEasyPoints = UserDefaults.standard.integer(forKey: "highScoreEasy")
+    let savedMediumPoints = UserDefaults.standard.integer(forKey: "highScoreMedium")
+    let savedHardPoints = UserDefaults.standard.integer(forKey: "highScoreHard")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         easyPointsLabel.text = "\(savedEasyPoints)"
-        mediumointsLabel.text = "\(savedMediumPoints)"
+        mediumPointsLabel.text = "\(savedMediumPoints)"
         hardPointsLabel.text = "\(savedHardPoints)"
     }
 }

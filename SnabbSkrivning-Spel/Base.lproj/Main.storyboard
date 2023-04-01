@@ -223,7 +223,7 @@
                     <connections>
                         <outlet property="easyPointsLabel" destination="YtH-gy-O1V" id="wub-m9-Pw1"/>
                         <outlet property="hardPointsLabel" destination="tHb-YW-42M" id="AmP-6a-aKz"/>
-                        <outlet property="mediumointsLabel" destination="YJV-8r-3V3" id="htH-jv-peL"/>
+                        <outlet property="mediumPointsLabel" destination="YJV-8r-3V3" id="ZZ7-CD-zYB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ee3-as-F6M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

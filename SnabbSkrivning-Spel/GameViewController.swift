@@ -31,10 +31,15 @@ class GameViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
     
     var timer = Timer()
     var countdownTimer = 20
-    var earnedPoints = 0
     
+    var earnedPoints = 0
+
     var currentWord = ""
     var currentDifficulty = ""
+    
+    var highScoreEasy = UserDefaults.standard.integer(forKey: "highScoreEasy")
+    var highScoreMedium = UserDefaults.standard.integer(forKey: "highScoreMedium")
+    var highScoreHard = UserDefaults.standard.integer(forKey: "highScoreHard")
     
     // Choose different difficulty from a pickerView
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -190,27 +195,36 @@ class GameViewController: UIViewController, UITextFieldDelegate, UIPickerViewDat
     func checkAnswer() {
         
         if textInput.text == randomTextLabel.text {
-            
             earnedPoints += 1
             countdownTimer += 1
+            
             pointsLabel.text = "\(earnedPoints)"
             
-            // Gets the new random word from different functions
+            // Gets the new random word from and sends the new highscore if earnedPoints > highScore
+            
             if (currentDifficulty == "Easy") {
                 getEasyRandomWords()
                 
-                UserDefaults.standard.set(earnedPoints, forKey: "easyPoints")
+                 if (earnedPoints > highScoreEasy) {
+                     highScoreEasy = earnedPoints
+                    UserDefaults.standard.set(highScoreEasy, forKey: "highScoreEasy")
+                }
                 
             } else if (currentDifficulty == "Medium")  {
                 getMediumRandomWords()
                 
-                UserDefaults.standard.set(earnedPoints, forKey: "mediumPoints")
+                if earnedPoints > highScoreMedium {
+                    highScoreMedium = earnedPoints
+                    UserDefaults.standard.set(highScoreMedium, forKey: "highScoreMedium")
+                }
                 
             } else if (currentDifficulty == "Hard"){
                 getHardRandomWords()
                 
-                UserDefaults.standard.set(earnedPoints, forKey: "hardPoints")
-                
+                if earnedPoints > highScoreHard {
+                    highScoreHard = earnedPoints
+                    UserDefaults.standard.set(highScoreHard, forKey: "highScoreHard")
+                }
             }
             textInput.text = ""
         } else {
